@@ -43,12 +43,13 @@ class Funcionario():
         else:
             self.sindicato = False
             self.taxa_sindicato = 0
+
         
     def ponto(self):
         if self.tipo_funcionario == 1:
             horas = int(input("Insira a quantidade de horas trabalhadas: "))
             if horas > 8:
-                extra =  self.salario_por_hora * 1.5 * (horas-8)
+                extra = self.salario_por_hora * 1.5 * (horas-8)
                 self.salario += (8 * self.salario_por_hora) + extra
                 
             else :
