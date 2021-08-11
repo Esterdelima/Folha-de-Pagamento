@@ -86,6 +86,7 @@ def opcoesFolha():
         result= input("Informe seu ID: ")
         #folha = Folha()
         funcionarios.append(Funcionario)
+        folha.folhaPagamento()
         
         #folha.append(folha)
         setId()
