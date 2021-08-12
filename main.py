@@ -1,19 +1,12 @@
-from funcionario import Funcionario
-from folha import Folha
-
-funcionarios = []
-
-def setId():
-    for i in funcionarios:
-        i.id = funcionarios.index(i)
-
-def listar():
-    if funcionarios == []:
-        print("\nAinda não há funcionários cadastrados")
-    else:
-        print("\nid - Nome")
-        for i in funcionarios:
-            print("%2d" %i.id + " - " + i.nome)
+from modelo.funcionario_model import Funcionario
+# from modelo.salario_model import Salario
+# from tipo_funcionario.assalariado import Assalariado
+# from tipo_funcionario.comissario import Comissario
+# from tipo_funcionario.horista import Horista
+from funcionalidades.crudFuncionario import CrudFuncionario
+# 
+# listaFuncionario = []
+# listaTipoFuncionario = []
 
 def opcoesFuncionario():
     print("\nOpções de funcionário:")
@@ -26,115 +19,70 @@ def opcoesFuncionario():
     escolha = int(input("O que deseja?\n"))
 
     if escolha == 1:
-        nome = input("Insira o nome: ")
-        funcionario = Funcionario(nome)
-        funcionario.adicionarFuncionario()
-        funcionarios.append(funcionario)
-        setId()
-        opcoes()
-
-    elif escolha == 2:
-        listar()
-        id = int(input("Insira o id do funcionário deseja demitir: "))
-        funcionarios.pop(id)
-        setId()
-        opcoes()
-
-    elif escolha == 3:
-        listar()
-        id = int(input("Insira o id do funcionário que fará o lançamento: "))
-        print("""Insira o tipo de lançamento
-        1 - Cartão de ponto
-        2 - Venda
-        3 - Serviço""")
+        nome = input("Insira o nome do funcionario a ser adicionado:\n")
+        endereco = input("Insira o endereço do funcionario a ser adicionado:\n")
+        print("""Faz parte de sindicato:
+        1 - Sim
+        2 - Não""")
+        sindicato = bool
         escolha = int(input())
+        while escolha > 2:
+            escolha = int(input("Não entendi, escolha novamente: "))
         if escolha == 1:
-            funcionarios[id].ponto()
-        elif escolha == 2:
-            funcionarios[id].venda()
-        elif escolha == 3:
-            funcionarios[id].servico()
-        opcoes()
+            sindicato = True
+        else:
+            sindicato = False
 
-    elif escolha == 4:
-        listar()
-        id = int(input("Insira o id do funcionário desejado: "))
-        funcionarios[id].alterarDados()
-        opcoes()
+        funcionario = Funcionario(nome, endereco, sindicato)
+        CrudFuncionario.criarFuncionario(funcionario)
+        CrudFuncionario.listar()
 
-    elif escolha == 5:
-        listar()
-        opcoes()
+        #opcoes()
 
-    elif escolha == 6:
-        opcoes()
-        
-    else:
-        print("Não entendi, vamos recomeçar o atendimento")
-        opcoesFuncionario()
+opcoesFuncionario()
 
-def opcoesFolha():
-    print("\nOpções da folha:")
-    print("""    1 - Gerar Folha de Pagamento\n
-    2 - Agenda de pagamento\n
-    3 - Criar nova agenda de pagamento
-    4 - Voltar""")
-    escolha = int(input("O que deseja?\n"))
+    # elif escolha == 2: #AINDA FALTA FAZER
+        # listaFuncionario()
+        # id = int(input("Insira o id do funcionário deseja demitir: "))
+        # listaFuncionario.pop(id)
+        # opcoes()
 
-    if escolha == 1:
-        listar()
-        result= input("Informe seu ID: ")
-        #folha = Folha()
-        funcionarios.append(Funcionario)
-        folha.folhaPagamento()
-        
-        #folha.append(folha)
-        setId()
-        opcoes()
-    elif escolha == 2:
-        print("opçoes de agenda")
-        opcoes()
-    elif escolha == 3:
-        print("criar nova agenda")
-        opcoes()
-    elif escolha == 4:
-        opcoes()
-    else:
-        print("Não entendi, vamos recomeçar o atendimento")
-        opcoesFolha()
+    # elif escolha == 3:
+        # 
+        # id = int(input("Insira o id do funcionário que fará o lançamento: "))
+        # print("""Insira o tipo de lançamento:
+        # 1 - Cartão de ponto
+        # 2 - Venda
+        # 3 - Serviço""")
+        # escolha = int(input())
+        # if escolha == 1:
 
-def opcoes():
-    print("\nMenu principal:")
-    print("""    1 - Espaço funcionario
-    2 - Folha de Pagamento
-    3 - Sair""")
-    escolha = int(input("O que deseja?\n"))
+            # horas = int(input("Insira a quantidade de horas trabalhadas: "))
+            # valorSalario = float(input("Insira o salario por horas trabalhadas: "))
+            # horista = Horista(horas, valorSalario)
+            # if listaFuncionario.Sindica
 
-    if escolha == 1:
-        opcoesFuncionario()
-    elif escolha == 2:
-        opcoesFolha()
-    elif escolha == 3:
-        print("Obrigada por utilizar nosso sistema, volte sempre!")
-        return
-    else:
-        print("\nNão entendi, vamos recomeçar o atendimento")
-        opcoes()
+        # elif escolha == 2:
+            # funcionarios[id].venda()
+        # elif escolha == 3:
+            # funcionarios[id].servico()
+        # opcoes()
 
-print("Seja bem-vindo ao sistema Folha de Pagamento")
+    # elif escolha == 4:
+        # listar()
+        # id = int(input("Insira o id do funcionário desejado: "))
+        # funcionarios[id].alterarDados()
+        # opcoes()
 
-def iniciar():
-    funcionario = Funcionario("primeiro funcionario")
-    funcionarios.append(funcionario)
-    funcionario = Funcionario("segundo funcionario")
-    funcionarios.append(funcionario)
-    funcionario = Funcionario("terceiro funcionario")
-    funcionarios.append(funcionario)
-    funcionario = Funcionario("quarto funcionario")
-    funcionarios.append(funcionario)
-    funcionario = Funcionario("quinto funcionario")
-    funcionarios.append(funcionario)
-    setId()
+    # elif escolha == 5:
+        # listar()
+        # opcoes()
 
-iniciar()
-opcoes()
+    # elif escolha == 6:
+        # opcoes()
+        # 
+    # else:
+        # print("Não entendi, vamos recomeçar o atendimento")
+        # opcoesFuncionario()
+
+

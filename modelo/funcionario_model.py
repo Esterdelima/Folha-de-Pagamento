@@ -1,7 +1,4 @@
 
-from modelo.salario_model import Salario
-
-
 class Funcionario():
     nome = ''
     endereco = ''
@@ -9,11 +6,10 @@ class Funcionario():
     sindicato = bool
     valorSalario = float
 
-    def __init__(self, nome, endereco, sindicato, valorSalario):
+    def __init__(self, nome, endereco, sindicato):
         self.nome = nome
         self.endereco = endereco
         self.sindicato = sindicato
-        self.valorSalario = valorSalario
 
     def setNome(self, nome):
         self.nome = nome

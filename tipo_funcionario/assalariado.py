@@ -4,8 +4,8 @@ class Assalariado(Funcionario):
 
     salario = float
     
-    def __init__(self, nome, endereco, sindicato, valorSalario, salario):
-        super().__init__(nome, endereco, sindicato, valorSalario)
+    def __init__(self, nome, endereco, sindicato, salario):
+        super().__init__(nome, endereco, sindicato)
         self.salario = salario
 
     def setSalario(self, salario):
