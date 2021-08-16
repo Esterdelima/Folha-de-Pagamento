@@ -13,3 +13,5 @@ class Assalariado(Funcionario):
 
     def getSalario(self):
         return self.salario
+
+    

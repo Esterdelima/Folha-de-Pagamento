@@ -1,5 +1,5 @@
 from modelo.funcionario_model import Funcionario
-from salario_model import Salario
+from salarioModel import Salario
 
 class Horista(Funcionario):
 

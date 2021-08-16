@@ -80,13 +80,36 @@ def opcoesFuncionario():
         crud.listar()
     
 
-    # elif escolha == 6:
-        # opcoes()
+    elif escolha == 6:
+        opcoes()
         # 
     # else:
         # print("Não entendi, vamos recomeçar o atendimento")
         # opcoesFuncionario()
 
 
-while(True):
-    opcoesFuncionario()
+
+
+
+def opcoes():
+    print("\nMenu principal:")
+    print("""    1 - Espaço funcionario
+    2 - Folha de Pagamento
+    3 - Sair""")
+    escolha = int(input("O que deseja?\n"))
+
+    if escolha == 1:
+        opcoesFuncionario()
+    elif escolha == 2:
+        print("entra")
+        #opcoesFolha()
+    elif escolha == 3:
+        print("Obrigada por utilizar nosso sistema, volte sempre!")
+        return
+    else:
+        print("\nNão entendi, vamos recomeçar o atendimento")
+        opcoes()
+
+print("Seja bem-vindo ao sistema Folha de Pagamento")
+
+opcoes()
