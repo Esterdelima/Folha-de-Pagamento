@@ -6,10 +6,14 @@ class Funcionario():
     sindicato = bool
     valorSalario = float
 
-    def __init__(self, nome, endereco, sindicato):
+    def __init__(self, nome, endereco, sindicato, id):
         self.nome = nome
         self.endereco = endereco
         self.sindicato = sindicato
+        self.id = id
+
+    def toString(self):
+        return 'Nome: ' + self.nome + ' | Endereço: ' + self.endereco +' | Sindicato: ' + str(self.sindicato) +' | Id: ' + str(self.id)
 
     def setNome(self, nome):
         self.nome = nome
@@ -34,3 +38,6 @@ class Funcionario():
 
     def getSindicato(self):
         return self.sindicato
+
+    def getId(self):
+        return self.id

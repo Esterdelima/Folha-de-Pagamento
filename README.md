@@ -13,9 +13,9 @@ Descrição das funcionalidades do sistema
 |:---:|:---:| :---:|
 | 1 | Adição de um empregado | FEITO |
 | 2 | Remoção de um empregado | FEITO|
-| 3 | Lançar um Cartão de Ponto | FEITO |
-| 4 | Lançar um Resultado Venda| FEITO |
-| 5 | Lançar uma taxa de serviço| FEITO |
+| 3 | Lançar um Cartão de Ponto |  |
+| 4 | Lançar um Resultado Venda|  |
+| 5 | Lançar uma taxa de serviço| |
 | 6 | Alterar detalhes de um empregado| FEITO |
 | 7 | Rodar a folha de pagamento para hoje |  |
 | 8 | Undo/redo|  |

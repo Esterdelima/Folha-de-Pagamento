@@ -7,6 +7,7 @@ from funcionalidades.crudFuncionario import CrudFuncionario
 # 
 # listaFuncionario = []
 # listaTipoFuncionario = []
+crud = CrudFuncionario()
 
 def opcoesFuncionario():
     print("\nOpções de funcionário:")
@@ -32,20 +33,18 @@ def opcoesFuncionario():
             sindicato = True
         else:
             sindicato = False
-
-        funcionario = Funcionario(nome, endereco, sindicato)
-        CrudFuncionario.criarFuncionario(funcionario)
-        CrudFuncionario.listar()
+        novoId = int(crud.prefixo+str(crud.id))
+        funcionario = Funcionario(nome, endereco, sindicato, novoId)
+        crud.criarFuncionario(funcionario)
+        crud.listar()
+        input('\nPressione ENTER para continuar...')
 
         #opcoes()
 
-opcoesFuncionario()
-
-    # elif escolha == 2: #AINDA FALTA FAZER
-        # listaFuncionario()
-        # id = int(input("Insira o id do funcionário deseja demitir: "))
-        # listaFuncionario.pop(id)
-        # opcoes()
+    elif escolha == 2: #AINDA FALTA FAZER
+        crud.listar()
+        id = input('Informe o Id do funcionario que deseja remover: ')
+        crud.remove(id)      
 
     # elif escolha == 3:
         # 
@@ -68,15 +67,18 @@ opcoesFuncionario()
             # funcionarios[id].servico()
         # opcoes()
 
-    # elif escolha == 4:
-        # listar()
-        # id = int(input("Insira o id do funcionário desejado: "))
-        # funcionarios[id].alterarDados()
-        # opcoes()
+    elif escolha == 4:
+        crud.listar()
+        id = int(input("Insira o id do funcionário desejado: "))
+        escolha = input("""Informe o dado que deseja alterar: 
+                        1 - Nome
+                        2 - Endereço
+                        3 - Sindicato\n""")
+        crud.editar(id, int(escolha))
 
-    # elif escolha == 5:
-        # listar()
-        # opcoes()
+    elif escolha == 5:
+        crud.listar()
+    
 
     # elif escolha == 6:
         # opcoes()
@@ -86,3 +88,5 @@ opcoesFuncionario()
         # opcoesFuncionario()
 
 
+while(True):
+    opcoesFuncionario()
