@@ -118,13 +118,14 @@ def opcoesFuncionario():
 
 def opcoesFolha():
     print("\nOpções da folha:")
-    print("""    1 - Gerar Folha de Pagamento\n
-    2 - Agenda de pagamento\n
-    3 - Criar nova agenda de pagamento
-    4 - Voltar""")
+    print("""1 - Gerar Folha de Pagamento\n
+             2 - Agenda de pagamento\n
+             3 - Criar nova agenda de pagamento
+             4 - Voltar""")
     escolha = int(input("O que deseja?\n"))
     if escolha == 1:
         crud.listar()
+        valor = float
         id = int(input("Insira o id do funcionário desejado: "))
         #indexes = [index for index in range(len(crud.listaFuncionario)) if crud.listaFuncionario[index].getId() == int(id)]
         funcionario = None
@@ -141,21 +142,19 @@ def opcoesFolha():
     
         if funcionario.getTipoFuncionario() == 'Horista':
             print('entrou horista')
-            #valor = Horista.cartaoPonto(funcionario.getHoras, funcionario.getValorSalario, funcionario.getValorSindicato, funcionario.getTaxaServico)
+            valor = funcionario.cartaoPonto()
         elif funcionario.getTipoFuncionario() == 'Assalariado':
             print('entrou assalariado')
             #valor = Assalariado.salarioAssalariado(funcionario.getSindicato, funcionario.getTaxaServico, funcionario.getSalario)
         else:
             print('comissario')
             #valor = Comissario.comissao(funcionario.getSindicato, funcionario.getTaxaServico, funcionario.getTaxaComissao)
-        #print(valor)
+        print(valor)
 
 
 def opcoes():
     print("\nMenu principal:")
-    print("""  1 - Espaço funcionario
-    2 - Folha de Pagamento
-    3 - Sair""")
+    print("""1 - Espaço funcionario\n2 - Folha de Pagamento\n3 - Sair""")
     escolha = int(input("O que deseja?\n"))
 
     if escolha == 1:
