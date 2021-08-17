@@ -1,4 +1,5 @@
 from modelo.funcionario_model import Funcionario
+import pendulum
 #from salarioModel import Salario
 
 class Comissario(Funcionario):
@@ -17,15 +18,23 @@ class Comissario(Funcionario):
     def getTaxaComissao(self):
         return self.taxaComissao
 
-    def comissao(self, sindicato, taxaServico, taxaComissao):
+    def comissao(self):
         novoSalario = float
-        if sindicato > 0:
-            if taxaServico > 0:
-                novoSalario = taxaComissao - sindicato - taxaServico
+        if self.sindicato > 0:
+            if self.taxaServico > 0:
+                novoSalario = self.taxaComissao - self.sindicato - self.taxaServico
                 return novoSalario
             else:
-                novoSalario = taxaComissao - sindicato
+                novoSalario = self.taxaComissao - self.sindicato
             return novoSalario
         else:
-            return taxaComissao
+            return self.taxaComissao
 
+
+    def agendar(self):
+        dt = pendulum.now()
+        print (dt)
+        agenda = dt.next(pendulum.FRIDAY)
+        agenda = agenda.add(weeks=2)
+        self.agenda = agenda
+    

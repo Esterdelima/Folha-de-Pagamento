@@ -1,4 +1,5 @@
 from modelo.funcionario_model import Funcionario
+import pendulum
 #from salarioModel import Salario
 
 class Horista(Funcionario):
@@ -40,3 +41,8 @@ class Horista(Funcionario):
         else:
             return self.valorSalario*self.horas
     
+    def agendar(self):
+        dt = pendulum.now()
+        print (dt)
+        agenda = dt.next(pendulum.FRIDAY)
+        self.agenda = agenda

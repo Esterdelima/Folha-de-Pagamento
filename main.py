@@ -1,4 +1,5 @@
 from ast import Num
+import pendulum
 from modelo.funcionario_model import Funcionario
 #from salarioModel import Salario
 # from modelo.salario_model import Salario
@@ -127,7 +128,6 @@ def opcoesFolha():
         crud.listar()
         valor = float
         id = int(input("Insira o id do funcionário desejado: "))
-        #indexes = [index for index in range(len(crud.listaFuncionario)) if crud.listaFuncionario[index].getId() == int(id)]
         funcionario = None
         for i in crud.listaFuncionario:
             print(' entra ', i.getId())
@@ -139,17 +139,20 @@ def opcoesFolha():
             return 
 
         print(funcionario)
+        
     
         if funcionario.getTipoFuncionario() == 'Horista':
             print('entrou horista')
             valor = funcionario.cartaoPonto()
         elif funcionario.getTipoFuncionario() == 'Assalariado':
             print('entrou assalariado')
-            #valor = Assalariado.salarioAssalariado(funcionario.getSindicato, funcionario.getTaxaServico, funcionario.getSalario)
+            valor = funcionario.salarioAssalariado()
         else:
             print('comissario')
-            #valor = Comissario.comissao(funcionario.getSindicato, funcionario.getTaxaServico, funcionario.getTaxaComissao)
-        print(valor)
+            valor = funcionario.comissao()
+
+        funcionario.agendar()
+        print(valor, funcionario.agenda)
 
 
 def opcoes():

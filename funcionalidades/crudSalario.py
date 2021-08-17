@@ -1,20 +1,31 @@
-from modelo.funcionario_model import Funcionario
-from modelo.salarioModel import Salario
-from funcionalidades.crudFuncionario import CrudFuncionario
+# import pendulum 
+# from tipo_funcionario.assalariado import Assalariado
+# from tipo_funcionario.comissario import Comissario
+# from tipo_funcionario.horista import Horista
+# # from modelo.funcionario_model import Funcionario
+# # from modelo.salarioModel import Salario
+# # from funcionalidades.crudFuncionario import CrudFuncionario
+# # 
+# dt = pendulum.now()
+# print (dt)
 
-class CrudSalario:
+# class CrudSalario:
+#     # 
+#     # def metodoPagamento():
+#         # escolha = input('')
+
     
-    valorSalario = float
+    
 
-    def criarSalario(self, valorSalario, id):
-        self.valorSalario
-        self.id
+    
+    
+    
 
 
-        # menu lançamento
-        # 1 - lançar venda
-        # 2 - lancar cartão de ponto
-        # 3 - lançar serviço
+    
+    
+    
+    
 
 
 
