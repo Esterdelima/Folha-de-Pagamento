@@ -36,9 +36,14 @@ class CrudFuncionario:
             valor = input('Insira o novo dado: ')
             self.listaFuncionario[indexes[0]].setEndereco(valor)
         elif edita == 3:
-            escolha = int(input('Digite 1 - True e 2 - False:\n'))
-            if escolha == 1:
-                self.listaFuncionario[indexes[0]].setSindicato(True)
-            else:
-                self.listaFuncionario[indexes[0]].setSindicato(False)
+            valor = input('Insira o novo dado: ')
+            self.listaFuncionario[indexes[0]].setSindicato(valor)
+        elif edita == 4:
+            valor = input('Insira o novo dado: ')
+            self.listaFuncionario[indexes[0]].setTaxaServico(valor)
+        elif edita == 5:
+            valor = input('Insira o novo dado: ')
+            self.listaFuncionario[indexes[0]].setTipoFuncionario(valor)
     
+    # def taxaServiço():
+        # escolha = int(input())

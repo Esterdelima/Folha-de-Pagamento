@@ -3,17 +3,22 @@ class Funcionario():
     nome = ''
     endereco = ''
     id = int
-    sindicato = bool
+    sindicato = float
     valorSalario = float
+    taxaServico = float
+    tipoFuncionario = str
+    
 
-    def __init__(self, nome, endereco, sindicato, id):
+    def __init__(self, nome, endereco, sindicato, id, taxaServico, tipoFuncionario):
         self.nome = nome
         self.endereco = endereco
         self.sindicato = sindicato
         self.id = id
+        self.taxaServico = taxaServico
+        self.tipoFuncionario = tipoFuncionario
 
     def toString(self):
-        return 'Nome: ' + self.nome + ' | Endereço: ' + self.endereco +' | Sindicato: ' + str(self.sindicato) +' | Id: ' + str(self.id)
+        return 'Nome: ' + self.getNome() + ' | Endereço: ' + self.getEndereco() + ' | Taxa Sindicato: ' + str(self.getSindicato())  + ' | Taxa Serviço: ' + str(self.getTaxaServico()) + ' | Funcionario: ' + self.getTipoFuncionario() + ' | Id: ' + str(self.getId())
 
     def setNome(self, nome):
         self.nome = nome
@@ -26,6 +31,18 @@ class Funcionario():
 
     def setValorSalario(self, valorSalario):
         self.valorSalario = valorSalario
+
+    def setTaxaServico(self, taxaServico):
+        self.taxaServico = taxaServico
+
+    def setTipoFuncionario(self,tipoFuncionario):
+        self.tipoFuncionario = tipoFuncionario
+    
+    def getTipoFuncionario(self):
+        return self.tipoFuncionario
+
+    def getTaxaServico(self):
+        return self.taxaServico
 
     def getValorSalario(self):
         return self.valorSalario

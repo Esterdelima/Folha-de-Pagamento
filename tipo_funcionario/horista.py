@@ -1,20 +1,16 @@
 from modelo.funcionario_model import Funcionario
-from salarioModel import Salario
+#from salarioModel import Salario
 
 class Horista(Funcionario):
 
     horas = int
     valorSalario = float
 
-    def __init__(self, nome, endereco, sindicato, valorSalario, horas):
-        super().__init__(nome, endereco, sindicato)
+    def __init__(self, nome, endereco, sindicato, id, taxaServico, horas, valorSalario, tipoFuncionario):
+        super().__init__(nome, endereco, sindicato, id, taxaServico, tipoFuncionario)
         self.horas = horas
         self.valorSalario = valorSalario
 
-    def __init__(self, horas, valorSalario):
-        self.horas = horas
-        self.valorSalario = valorSalario
-        
     
     def setHoras(self, horas):
         self.horas = horas
@@ -29,7 +25,7 @@ class Horista(Funcionario):
         return self.horas
 
 
-    def cartaoPonto(self, horas, valorSalario,valorSindicato):
+    def cartaoPonto(self, horas, valorSalario,valorSindicato, taxaServico):
         salario = float
         if horas > 8:
             extra = valorSalario * 1.5 * (horas-8)
@@ -38,5 +34,5 @@ class Horista(Funcionario):
         else :
             salario += horas * valorSalario
     
-        return salario - valorSindicato
+        return salario - valorSindicato - taxaServico
         
