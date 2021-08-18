@@ -1,6 +1,5 @@
 from modelo.funcionario_model import Funcionario
 import pendulum
-#from salarioModel import Salario
 
 class Horista(Funcionario):
 

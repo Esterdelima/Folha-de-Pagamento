@@ -1,6 +1,6 @@
 from modelo.funcionario_model import Funcionario
 
-class CrudFuncionario:
+class Crud:
 
     listaFuncionario = []
     prefixo = '13'
@@ -45,5 +45,9 @@ class CrudFuncionario:
             valor = input('Insira o novo dado: ')
             self.listaFuncionario[indexes[0]].setTipoFuncionario(valor)
     
-    # def taxaServiço():
-        # escolha = int(input())
+    def metodoPagamento():
+        escolha = int(input("""Escolha seu método de pagamento:
+                                1 - Cheque em mãos
+                                2 - Cheque em correios
+                                3 - Deposito em conta"""))
+                                

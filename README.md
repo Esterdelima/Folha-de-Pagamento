@@ -17,8 +17,8 @@ Descrição das funcionalidades do sistema
 | 4 | Lançar um Resultado Venda| FEITO |
 | 5 | Lançar uma taxa de serviço| FEITO |
 | 6 | Alterar detalhes de um empregado| FEITO |
-| 7 | Rodar a folha de pagamento para hoje |  |
+| 7 | Rodar a folha de pagamento para hoje | FEITO |
 | 8 | Undo/redo|  |
-| 9 | Agenda de Pagamento|  |
+| 9 | Agenda de Pagamento| FEITO |
 | 10 | Criação de Novas Agendas de Pagamento |  |
 

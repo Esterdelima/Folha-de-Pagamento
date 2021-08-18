@@ -16,7 +16,8 @@ class Funcionario():
         self.id = id
         self.taxaServico = taxaServico
         self.tipoFuncionario = tipoFuncionario
-        self.agenda = ''
+        self.agenda = self.agendar()
+
 
     def toString(self):
         return 'Nome: ' + self.getNome() + ' | Endereço: ' + self.getEndereco() + ' | Taxa Sindicato: ' + str(self.getSindicato())  + ' | Taxa Serviço: ' + str(self.getTaxaServico()) + ' | Funcionario: ' + self.getTipoFuncionario() + ' | Id: ' + str(self.getId())

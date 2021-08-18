@@ -1,25 +1,22 @@
 from ast import Num
 import pendulum
 from modelo.funcionario_model import Funcionario
-#from salarioModel import Salario
-# from modelo.salario_model import Salario
 from tipo_funcionario.assalariado import Assalariado
 from tipo_funcionario.comissario import Comissario
 from tipo_funcionario.horista import Horista
-from funcionalidades.crudFuncionario import CrudFuncionario
-# 
-# listaFuncionario = []
-# listaTipoFuncionario = []
-crud = CrudFuncionario()
+from funcionalidades.crud import Crud
+ 
+
+
+crud = Crud()
 
 def opcoesFuncionario():
     print("\nOpções de funcionário:")
     print("""    1 - Adicionar funcionário
     2 - Remover funcionário
-    3 - Lançamentos
-    4 - Alterar dados
-    5 - Listar funcionários
-    6 - Voltar""")
+    3 - Alterar dados
+    4 - Listar funcionários
+    5 - Voltar""")
     escolha = int(input("O que deseja?\n"))
 
     if escolha == 1:
@@ -45,7 +42,7 @@ def opcoesFuncionario():
             taxaSindicato = 0
             taxaServico = 0
         novoId = int(crud.prefixo+str(crud.id))
-        #funcionario = Funcionario(nome, endereco, sindicato, novoId)
+    
 
         tipoFuncionario = int(input("""Informe sua função:
                                 1- Horista
@@ -62,14 +59,9 @@ def opcoesFuncionario():
             taxaComissao = float(input('Informe a sua comissão: \n'))
             funcionario = Comissario(nome,endereco,taxaSindicato, novoId, taxaServico, taxaComissao, 'Comissario')
         
-
         crud.criarFuncionario(funcionario)
         crud.listar()
         input('\nPressione ENTER para continuar...')
-
-        
-
-        #opcoes()
 
     elif escolha == 2:
         crud.listar()
@@ -95,7 +87,7 @@ def opcoesFuncionario():
             # funcionarios[id].servico()
         # opcoes()
 
-    elif escolha == 4:
+    elif escolha == 3:
         crud.listar()
         id = int(input("Insira o id do funcionário desejado: "))
         escolha = input("""Informe o dado que deseja alterar: 
@@ -106,23 +98,21 @@ def opcoesFuncionario():
                         5 - Tipo de Funcionario\n""")
         crud.editar(id, int(escolha))
 
-    elif escolha == 5:
+    elif escolha == 4:
         crud.listar()
     
 
-    elif escolha == 6:
+    elif escolha == 5:
         opcoes()
-        # 
-    # else:
-        # print("Não entendi, vamos recomeçar o atendimento")
-        # opcoesFuncionario()
+         
+    else:
+        print("Não entendi, vamos recomeçar o atendimento")
+        opcoesFuncionario()
 
 def opcoesFolha():
     print("\nOpções da folha:")
     print("""1 - Gerar Folha de Pagamento\n
-             2 - Agenda de pagamento\n
-             3 - Criar nova agenda de pagamento
-             4 - Voltar""")
+             2 - Voltar""")
     escolha = int(input("O que deseja?\n"))
     if escolha == 1:
         crud.listar()
@@ -144,16 +134,23 @@ def opcoesFolha():
         if funcionario.getTipoFuncionario() == 'Horista':
             print('entrou horista')
             valor = funcionario.cartaoPonto()
+            funcionario.setValorSalario(0) 
         elif funcionario.getTipoFuncionario() == 'Assalariado':
             print('entrou assalariado')
             valor = funcionario.salarioAssalariado()
+            funcionario.setSalario(0)
         else:
             print('comissario')
             valor = funcionario.comissao()
+            funcionario.setTaxaComissao(0)
 
         funcionario.agendar()
-        print(valor, funcionario.agenda)
-
+        print('Salario: | Data de pagamento: \n', valor, funcionario.agenda)
+        
+    
+    if escolha == 2:
+        opcoesFolha()
+         
 
 def opcoes():
     print("\nMenu principal:")
